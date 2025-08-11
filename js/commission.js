@@ -1,11 +1,11 @@
 function calculateCommission() {
-  let cost = document.getElementById('projectCost').value;
-  if (cost && cost > 0) {
-    let commission = cost * 0.10;
-    document.getElementById('result').innerText = `You earn: ₹${commission.toLocaleString()}`;
-  } else {
-    document.getElementById('result').innerText = "Please enter a valid project cost.";
-  }
+    const cost = parseFloat(document.getElementById('projectCost').value);
+    if (!cost || cost <= 0) {
+      document.getElementById('result').innerText = "⚠ Please enter a valid project cost.";
+      return;
+    }
+    const commission = cost * 0.10;
+    document.getElementById('result').innerText = `💵 Your Commission: ₹${commission.toLocaleString()}`;
 }
 
 function shareReferral() {
